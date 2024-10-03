@@ -15,7 +15,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "clone-deep": "^4.0.1",
     "cloudinary": "^2.5.0",
+    "date-fns": "^4.1.0",
     "formidable": "^3.5.1",
     "mongodb": "^6.8.1",
     "mongoose": "^8.6.1",
@@ -25,6 +27,9 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
+    "react-sortablejs": "^6.1.4",
+    "recharts": "^2.12.7",
+    "sortablejs": "^1.15.3",
     "uniqid": "^5.4.0"
   },
   "devDependencies": {
