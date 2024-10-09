@@ -2,7 +2,6 @@
 import grabUsername from "@/actions/grabUsername";
 import React, { useState } from "react";
 import RightIcon from "../icons/RightIcon";
-import UsernameFormResults from "../formResults/usernameFormResults";
 import { redirect, useRouter } from "next/navigation";
 import SubmitButton from "../buttons/SubmitButton";
 
