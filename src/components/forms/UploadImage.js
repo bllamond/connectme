@@ -14,8 +14,8 @@ const UploadImage = ({ onImageUpload }) => {
 
     }}>
       {({ open }) => (
-        <button className="bg-red-600 p-4 rounded-lg" onClick={() => open()}>
-          Upload
+        <button className="flex gap-2 text-gray-700 items-center cursor-pointer" onClick={() => open()}>
+          Upload Image
         </button>
       )}
     </CldUploadWidget>

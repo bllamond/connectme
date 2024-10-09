@@ -47,7 +47,7 @@ export default async function UserPage({params}) {
   const user = await User.findOne({email:page.owner});
   await Event.create({uri:uri, page:uri, type:'view'});
   return (
-    <div className="bg-blue-950 text-white min-h-screen">
+    <div className="bg-gray-800 text-white min-h-screen">
       <div
         className="h-36 bg-gray-400 bg-cover bg-center"
         style={
@@ -83,7 +83,7 @@ export default async function UserPage({params}) {
           </Link>
         ))}
       </div>
-      <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8">
+      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 p-4 px-8">
         {page.links.map(link => (
           <Link
             key={link.url}
