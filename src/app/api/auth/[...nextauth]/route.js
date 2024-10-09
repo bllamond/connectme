@@ -10,7 +10,8 @@ export const authOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            callbackURL: "https://connectme-delta.vercel.app/api/auth/callback/google",
         })
     ] 
 
