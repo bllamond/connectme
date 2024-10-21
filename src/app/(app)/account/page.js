@@ -18,7 +18,7 @@ export default async function AccountPage({searchParams}) {
   mongoose.connect(process.env.MONGO_URI);
   const page = await Page.findOne({owner: session?.user?.email});
 
-  const leanPage = cloneDeep(page.toJSON());
+  const leanPage = cloneDeep(page?.toJSON());
   leanPage._id = leanPage._id.toString();
   if (page) {
     return (
