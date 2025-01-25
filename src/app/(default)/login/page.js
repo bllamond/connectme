@@ -1,7 +1,5 @@
-
 import LoginWithGoogle from "@/components/buttons/LoginWithGoogle";
 import React from "react";
-
 
 const LoginPage = () => {
   return (

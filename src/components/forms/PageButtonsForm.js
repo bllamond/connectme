@@ -19,7 +19,6 @@ import {
   faFacebook,
   faGithub,
   faInstagram,
-  faInstagramSquare,
   faTelegram,
   faTiktok,
   faWhatsapp,
@@ -59,50 +58,51 @@ const allButtons = [
 const PageButtonsForm = ({ page, user }) => {
   const pageSavedButtonsKeys = Object.keys(page?.buttons ?? {});
   const pageSavedButtonsInfo = pageSavedButtonsKeys
-  .map((k) => allButtons.find((b) => b.key === k))
-  .filter(Boolean);
+    .map((k) => allButtons.find((b) => b.key === k))
+    .filter(Boolean);
 
   const [activeButtons, setActiveButtons] = useState(pageSavedButtonsInfo);
 
-  const availableButtons = allButtons.filter(b1 => !activeButtons.find(b2 => b1.key === b2.key));
+  const availableButtons = allButtons.filter(
+    (b1) => !activeButtons.find((b2) => b1.key === b2.key)
+  );
 
   function addButtonToProfile(button) {
-    setActiveButtons((prevButtons) => {
-      return [...prevButtons, button];
-    });
+    setActiveButtons((prevButtons) => [...prevButtons, button]);
   }
 
   async function saveButtons(formData) {
     await savePageButtons(formData);
-    toast.success('Settings saved!');
+    toast.success("Settings saved!");
   }
 
-  function removeButton({key:keyToRemove}) {
-    setActiveButtons(prevButtons => {
-      return prevButtons
-        .filter(button => button.key !== keyToRemove);
-    });
+  function removeButton({ key: keyToRemove }) {
+    setActiveButtons((prevButtons) =>
+      prevButtons.filter((button) => button.key !== keyToRemove)
+    );
   }
 
   function upperFirst(str) {
     return str.slice(0, 1).toUpperCase() + str.slice(1);
   }
+
   return (
     <SectionBox>
-      
       <form action={saveButtons}>
         <h2 className="text-2xl font-bold mb-4">Buttons</h2>
         <ReactSortable
           handle=".handle"
           list={activeButtons}
-          setList={setActiveButtons}>
-          {activeButtons.map(b => (
+          setList={setActiveButtons}
+        >
+          {activeButtons.map((b) => (
             <div key={b.key} className="mb-4 md:flex items-center">
               <div className="w-56 flex h-full text-gray-700 p-2 gap-2 items-center">
                 <FontAwesomeIcon
                   icon={faGripLines}
-                  className="w-8 cursor-pointer text-gray-400 handle p-2" />
-                <FontAwesomeIcon icon={b.icon} className={"w-5 h-6"}/>
+                  className="w-8 cursor-pointer text-gray-400 handle p-2"
+                />
+                <FontAwesomeIcon icon={b.icon} className={"w-5 h-6"} />
                 <span>{upperFirst(b.label)}:</span>
               </div>
               <div className="grow flex">
@@ -110,12 +110,15 @@ const PageButtonsForm = ({ page, user }) => {
                   placeholder={b.placeholder}
                   name={b.key}
                   className="inputForm"
-                  defaultValue={page.buttons[b.key]}
-                  type="text" style={{marginBottom:'0'}} />
+                  defaultValue={page?.buttons?.[b.key] || ""}
+                  type="text"
+                  style={{ marginBottom: "0" }}
+                />
                 <button
                   onClick={() => removeButton(b)}
                   type="button"
-                  className="py-2 px-4  bg-gray-300 cursor-pointer">
+                  className="py-2 px-4 bg-gray-300 cursor-pointer"
+                >
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
               </div>

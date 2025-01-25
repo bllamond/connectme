@@ -13,9 +13,9 @@ export default async function Header() {
         <div className="flex gap-6 items-center">
           <Link href={"/"}>ConnectMe</Link>
           <nav className="flex items-center gap-4 text-slate-500 text-sm">
-            <Link href={"/about"}>About</Link>
-            <Link href={"/pricing"}>Pricing</Link>
-            <Link href={"/contact"}>Contact</Link>
+            <Link href={"/"}>About</Link>
+            <Link href={"/"}>Pricing</Link>
+            <Link href={"/"}>Contact</Link>
           </nav>
         </div>
         <div className="flex items-center gap-4 text-sm text-slate-500">
@@ -28,8 +28,7 @@ export default async function Header() {
             }
           {!session && (
             <>
-              <Link href={"/login"}>Login</Link>
-              <Link href={"/signup"}>Create Account</Link>
+              <Link href={"/login"}>Login / Create Account</Link>
             </>
           )}
         </div>
